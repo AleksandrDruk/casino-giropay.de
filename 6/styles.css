@@ -60,9 +60,27 @@ html {
 body {
   font-family: var(--font-body) !important;
   background-color: var(--background) !important;
+  background-image: url('https://casino-giropay.de/wp-content/uploads/2026/01/242.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
   color: var(--foreground) !important;
   line-height: 1.6;
   min-height: 100vh;
+  position: relative !important;
+}
+
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(7, 5, 3, 0.92) !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
 }
 
 /* ========================================
@@ -72,6 +90,22 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading) !important;
   font-weight: 600;
   line-height: 1.2;
+}
+
+h2 {
+  margin-bottom: 10px !important;
+}
+
+/* Сброс margin для заголовков в entry-content */
+.entry-content :where(h1,h2,h3,h4,h5,h6),
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
 }
 
 a {
@@ -199,6 +233,7 @@ table tbody td,
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: var(--font-heading) !important;
+  animation: btnPulse 3s ease-in-out infinite !important;
 }
 
 .btn-gold:hover {
@@ -222,13 +257,6 @@ table tbody td,
     #3d2a10 90%, 
     transparent 100%
   ) !important;
-}
-
-/* Temple pattern */
-.temple-pattern {
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(15, 174, 119, 0.02) 0%, transparent 50%) !important;
 }
 
 /* ========================================
@@ -314,6 +342,387 @@ table tbody td,
 }
 
 /* ========================================
+   WordPress Header Styles
+   ======================================== */
+
+/* Основной хедер */
+.site-header,
+.site-header.header-main-layout-1,
+header.site-header#masthead {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background: rgba(7, 5, 3, 0.95) !important;
+  background-color: rgba(7, 5, 3, 0.95) !important;
+  background-image: none !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 
+    0 4px 20px rgba(212, 175, 55, 0.15),
+    0 8px 40px rgba(212, 175, 55, 0.1),
+    0 0 60px rgba(212, 175, 55, 0.05) !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  display: block !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* Desktop header */
+#ast-desktop-header,
+.ast-main-header-wrap,
+.main-header-bar-wrap {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+/* Primary header bar */
+.ast-primary-header-bar,
+.ast-primary-header,
+.main-header-bar {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Header container */
+.site-primary-header-wrap,
+.ast-builder-grid-row-container,
+.ast-container {
+  max-width: 1280px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+}
+
+/* Header row */
+.ast-builder-grid-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 64px !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+/* Logo & branding */
+.site-branding,
+.ast-site-identity {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+}
+
+.site-logo-img {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.site-logo-img img,
+.custom-logo {
+  max-height: 50px !important;
+  width: auto !important;
+  height: auto !important;
+  border: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+  transition: transform 0.3s ease !important;
+}
+
+.site-logo-img img:hover,
+.custom-logo:hover {
+  transform: scale(1.05) !important;
+}
+
+/* Site title */
+.site-title,
+.ast-site-title-wrap {
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.site-title a {
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  color: var(--gold) !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+.site-title a:hover {
+  color: var(--gold-light) !important;
+}
+
+/* Navigation */
+.site-navigation,
+.main-header-bar-navigation,
+.ast-builder-menu,
+.ast-builder-menu-1 {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.main-header-menu,
+.ast-nav-menu,
+.ast-menu-shadow {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.main-header-menu li,
+.ast-nav-menu li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* Desktop menu line-height */
+.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item,
+.ast-desktop .main-header-menu > .menu-item {
+  line-height: normal !important;
+}
+
+.main-header-menu a,
+.ast-nav-menu a,
+.menu-link {
+  font-size: 0.875rem !important;
+  color: rgba(255, 243, 209, 0.8) !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+  padding: 0.5rem 0 !important;
+  background: transparent !important;
+  display: inline-block !important;
+}
+
+.main-header-menu a:hover,
+.ast-nav-menu a:hover,
+.menu-link:hover {
+  color: var(--gold) !important;
+}
+
+.current-menu-item a,
+.current-menu-item .menu-link,
+.page_item.current-menu-item a,
+.menu-item.current-menu-item a {
+  color: var(--foreground) !important;
+  font-weight: 600 !important;
+}
+
+/* Mobile header */
+#ast-mobile-header,
+.ast-mobile-header-wrap {
+  background: rgba(7, 5, 3, 0.95) !important;
+  background-color: rgba(7, 5, 3, 0.95) !important;
+  background-image: none !important;
+  border: none !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Mobile menu toggle */
+.menu-toggle,
+.main-header-menu-toggle,
+.ast-mobile-menu-trigger-minimal {
+  background: transparent !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  color: var(--gold) !important;
+}
+
+.menu-toggle:hover,
+.main-header-menu-toggle:hover {
+  border-color: rgba(212, 175, 55, 0.5) !important;
+  background: rgba(212, 175, 55, 0.1) !important;
+}
+
+.menu-toggle svg,
+.ast-mobile-svg {
+  width: 24px !important;
+  height: 24px !important;
+  fill: var(--gold) !important;
+  color: var(--gold) !important;
+}
+
+/* Mobile menu content */
+.ast-mobile-header-content {
+  background: var(--background) !important;
+  background-color: var(--background) !important;
+  background-image: none !important;
+  border-top: 1px solid rgba(212, 175, 55, 0.2) !important;
+  padding: 1rem !important;
+}
+
+.ast-mobile-header-content .main-header-menu {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 0.75rem !important;
+  width: 100% !important;
+}
+
+.ast-mobile-header-content .menu-link {
+  display: block !important;
+  width: 100% !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 0.5rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.ast-mobile-header-content .menu-link:hover {
+  background: rgba(212, 175, 55, 0.1) !important;
+}
+
+/* Hide/show desktop/mobile */
+@media (min-width: 768px) {
+  #ast-mobile-header {
+    display: none !important;
+  }
+  
+  #ast-desktop-header {
+    display: block !important;
+  }
+}
+
+@media (max-width: 767px) {
+  #ast-desktop-header {
+    display: none !important;
+  }
+  
+  #ast-mobile-header {
+    display: block !important;
+  }
+  
+  .site-title a {
+    font-size: 1rem !important;
+  }
+}
+
+/* Перебивание data-атрибутов */
+[data-section*="header"],
+[data-section*="section-primary-header-builder"],
+[data-section*="section-header-mobile-trigger"],
+[data-section*="section-header-mobile-menu"],
+[data-section*="section-hb-menu-1"],
+[data-section*="title_tagline"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: var(--border) !important;
+}
+
+/* Дополнительное центрирование для primary header */
+.ast-primary-header-bar[data-section="section-primary-header-builder"] {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.site-primary-header-wrap[data-section="section-primary-header-builder"] {
+  width: 100% !important;
+  max-width: 1280px !important;
+}
+
+/* Убираем лишние отступы */
+.site-header .ast-builder-layout-element {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Flex элементы */
+.site-header .ast-flex {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Grid right section */
+.ast-grid-right-section {
+  justify-content: flex-end !important;
+}
+
+/* Inner container */
+.site-header .ast-builder-grid-row-container-inner {
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Header sections */
+.site-header-primary-section-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex: 0 0 auto !important;
+}
+
+.site-header-primary-section-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex: 1 !important;
+  justify-content: flex-end !important;
+}
+
+/* Все элементы внутри хедера */
+.site-header *:not(svg):not(path) {
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+}
+
+/* Screen reader text */
+.site-header .screen-reader-text {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+}
+
+/* ========================================
    Hero Section
    ======================================== */
 .hero {
@@ -328,7 +737,6 @@ table tbody td,
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #0a0603 0%, var(--background) 50%, var(--background) 100%) !important;
 }
 
 .hero-particles {
@@ -353,6 +761,24 @@ table tbody td,
 @keyframes pulse {
   0%, 100% { opacity: 0.3; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.5); }
+}
+
+@keyframes btnPulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 
+      0 2px 8px rgba(212, 175, 55, 0.4),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+  }
+  50% { 
+    transform: scale(1.02);
+    box-shadow: 
+      0 4px 16px rgba(212, 175, 55, 0.6),
+      0 0 30px rgba(212, 175, 55, 0.3),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+  }
 }
 
 .hero-content {
@@ -505,7 +931,7 @@ table tbody td,
 
 .section-header h2 {
   font-size: 1.875rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem !important;
 }
 
 .section-header p {
@@ -752,10 +1178,6 @@ table tbody td,
 /* ========================================
    Selection Criteria
    ======================================== */
-.bg-secondary-light {
-  background: rgba(36, 22, 7, 0.3) !important;
-}
-
 .criteria-grid {
   display: grid;
   gap: 1.5rem;
@@ -1787,6 +2209,735 @@ table tbody tr:first-child {
 /* ========================================
    Footer
    ======================================== */
+
+/* Сброс стилей WordPress/Astra для футера */
+.site-footer,
+.site-footer *,
+footer.site-footer,
+footer.site-footer * {
+  box-sizing: border-box !important;
+}
+
+.site-footer,
+.site-footer[itemtype*="WPFooter"],
+footer.site-footer#colophon {
+  background: #0a0603 !important;
+  background-color: #0a0603 !important;
+  background-image: none !important;
+  border-top: 1px solid rgba(212, 175, 55, 0.2) !important;
+  border-top-color: rgba(212, 175, 55, 0.2) !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-color: var(--border) !important;
+  box-shadow: 
+    0 -4px 20px rgba(212, 175, 55, 0.15),
+    0 -8px 40px rgba(212, 175, 55, 0.1),
+    0 0 60px rgba(212, 175, 55, 0.05) !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  width: 100% !important;
+}
+
+/* Above Footer Section - 2 columns */
+.site-above-footer-wrap,
+.site-above-footer-wrap[data-section="section-above-footer-builder"] {
+  padding: 3rem 0 2rem !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-color: var(--border) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  margin: 0 !important;
+}
+
+.ast-builder-grid-row-container-inner {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+}
+
+.site-above-footer-inner-wrap,
+.ast-builder-footer-grid-columns {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+  display: grid !important;
+  grid-template-columns: repeat(1, 1fr) !important;
+  gap: 2rem !important;
+  width: 100% !important;
+}
+
+@media (min-width: 768px) {
+  .site-above-footer-inner-wrap,
+  .ast-builder-footer-grid-columns {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 3rem !important;
+  }
+}
+
+/* Widget Areas */
+.footer-widget-area,
+.footer-widget-area-inner,
+aside.footer-widget-area {
+  color: var(--foreground) !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.footer-widget-area .widget,
+.footer-widget-area section {
+  margin-bottom: 1.5rem !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.footer-widget-area .widget:last-child,
+.footer-widget-area section:last-child {
+  margin-bottom: 0 !important;
+}
+
+.footer-widget-area p,
+.footer-widget-area .widget_text p,
+.widget_block p {
+  color: rgba(255, 243, 209, 0.9) !important;
+  line-height: 1.8 !important;
+  font-size: 0.9375rem !important;
+  margin-bottom: 1rem !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+}
+
+.footer-widget-area p em,
+.footer-widget-area em {
+  color: var(--muted-foreground) !important;
+  font-style: italic !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+}
+
+.footer-widget-area .wp-block-image,
+.footer-widget-area figure,
+.widget_media_image {
+  margin: 1rem 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.footer-widget-area .wp-block-image img,
+.footer-widget-area figure img,
+.widget_media_image img {
+  max-width: 68px !important;
+  height: auto !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  display: block !important;
+  background: rgba(212, 175, 55, 0.05) !important;
+  padding: 0.25rem !important;
+}
+
+/* Lists in footer */
+.footer-widget-area ul,
+.footer-widget-area .wp-block-list,
+.widget_block ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+}
+
+.footer-widget-area ul li,
+.footer-widget-area .wp-block-list li,
+.widget_block ul li {
+  padding-left: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+  background: transparent !important;
+}
+
+.footer-widget-area ul li::before,
+.footer-widget-area .wp-block-list li::before,
+.widget_block ul li::before,
+.footer-widget-area ul li::marker,
+.footer-widget-area .wp-block-list li::marker {
+  display: none !important;
+  content: none !important;
+}
+
+.footer-widget-area a,
+.footer-widget-area ul a,
+.footer-widget-area .wp-block-list a {
+  color: var(--gold) !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  font-size: 0.9375rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0.25rem 0 !important;
+}
+
+.footer-widget-area a:hover,
+.footer-widget-area ul a:hover,
+.footer-widget-area .wp-block-list a:hover {
+  color: var(--gold-light) !important;
+  transform: translateX(2px) !important;
+}
+
+/* Primary Footer Section - 3 columns */
+.site-primary-footer-wrap,
+.site-primary-footer-wrap[data-section="section-primary-footer-builder"] {
+  padding: 2rem 0 !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1) !important;
+  border-top: 1px solid var(--border) !important;
+  border-color: var(--border) !important;
+  border-left: none !important;
+  border-right: none !important;
+  background: rgba(7, 5, 3, 0.5) !important;
+  background-color: rgba(7, 5, 3, 0.5) !important;
+  background-image: none !important;
+  margin: 0 !important;
+}
+
+.site-primary-footer-inner-wrap {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .site-primary-footer-inner-wrap {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+.site-footer-primary-section-1,
+.site-footer-primary-section-2,
+.site-footer-primary-section-3 {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.site-footer-primary-section-2 {
+  text-align: center !important;
+}
+
+.site-footer-primary-section-2 p {
+  color: rgba(255, 243, 209, 0.9) !important;
+  line-height: 1.8 !important;
+  font-size: 0.875rem !important;
+  margin-bottom: 1rem !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+}
+
+.site-footer-primary-section-2 p em {
+  font-style: italic !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+}
+
+.site-footer-primary-section-2 .wp-block-image,
+.site-footer-primary-section-2 figure {
+  margin: 1rem auto !important;
+  max-width: 400px !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.site-footer-primary-section-2 .wp-block-image img,
+.site-footer-primary-section-2 figure img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(212, 175, 55, 0.15) !important;
+  display: block !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Below Footer Section - Copyright */
+.site-below-footer-wrap,
+.site-below-footer-wrap[data-section="section-below-footer-builder"] {
+  padding: 0 !important;
+  border: none !important;
+  border-top: none !important;
+  border-color: var(--border) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  margin: 0 !important;
+}
+
+.site-below-footer-inner-wrap,
+.site-below-footer-inner-wrap .ast-builder-footer-grid-columns,
+.site-footer-below-section-1 {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.ast-footer-copyright,
+.ast-builder-layout-element {
+  color: var(--muted-foreground) !important;
+  font-size: 0.875rem !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.ast-footer-copyright p,
+.ast-builder-layout-element p {
+  margin: 0 !important;
+  color: var(--muted-foreground) !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  font-size: 0.875rem !important;
+  text-align: center !important;
+}
+
+/* Сброс дополнительных стилей WordPress */
+.site-footer .site-footer-section,
+.site-footer-above-section-1,
+.site-footer-above-section-2 {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Центрирование пустых секций */
+.site-footer-primary-section-1:empty,
+.site-footer-primary-section-3:empty {
+  display: none !important;
+}
+
+/* ========================================
+   Дополнительные перебивания WordPress/Astra
+   ======================================== */
+
+/* Сброс всех padding и margin от Astra */
+.site-footer [class*="ast-"],
+.site-footer [class*="site-footer-"] {
+  box-sizing: border-box !important;
+}
+
+/* Перебивание всех border-color для data-атрибутов */
+.site-footer [data-section*="footer"],
+.site-footer [data-section*="section-above-footer-builder"],
+.site-footer [data-section*="section-primary-footer-builder"],
+.site-footer [data-section*="section-below-footer-builder"] {
+  border-color: var(--border) !important;
+  background-image: none !important;
+}
+
+/* Перебивание grid контейнеров */
+.ast-builder-grid-row-container[data-section*="footer"] {
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: var(--border) !important;
+}
+
+/* Перебиваем цвета Astra */
+.site-footer,
+.site-footer *:not(svg):not(path):not(polyline):not(line):not(circle):not(polygon):not(rect) {
+  color: inherit !important;
+}
+
+/* Ссылки в футере */
+.site-footer a:not(.btn-gold):not(.btn-v2) {
+  color: var(--gold) !important;
+  text-decoration: none !important;
+}
+
+.site-footer a:not(.btn-gold):not(.btn-v2):hover {
+  color: var(--gold-light) !important;
+}
+
+/* Перебивка фонов виджетов */
+.site-footer .widget,
+.site-footer section[class*="widget"],
+.site-footer .widget_text,
+.site-footer .widget_block,
+.site-footer .widget_media_image {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Перебивка текста */
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6 {
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  color: var(--foreground) !important;
+  margin: 0 0 0.75rem 0 !important;
+  padding: 0 !important;
+}
+
+.site-footer p,
+.site-footer span:not([class*="ml-"]):not([class*="text-"]):not([class*="badge"]):not([class*="tag"]) {
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+}
+
+/* Перебивка отступов между элементами */
+.site-footer .widget_text + .widget_media_image,
+.site-footer section + section {
+  margin-top: 1rem !important;
+}
+
+/* Astra grid перебивка */
+.ast-builder-grid-row-container {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ast-builder-grid-row {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Перебивка для изображений */
+.site-footer img {
+  max-width: 100% !important;
+  height: auto !important;
+  vertical-align: middle !important;
+}
+
+/* Убираем лишние обертки */
+.site-footer .ast-flex {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Перебивка для параграфов с классом has-text-align-center */
+.site-footer p.has-text-align-center {
+  text-align: center !important;
+}
+
+/* Фигуры WordPress */
+.site-footer figure {
+  margin: 1rem 0 !important;
+  padding: 0 !important;
+}
+
+.site-footer figure.is-resized img {
+  width: auto !important;
+  max-width: 68px !important;
+}
+
+/* Responsive утилиты Astra */
+@media (max-width: 767px) {
+  .ast-builder-grid-row-mobile-full .ast-builder-footer-grid-columns {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .site-footer-primary-section-2 .wp-block-image {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ast-builder-grid-row-tablet-2-equal .ast-builder-footer-grid-columns {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .ast-builder-grid-row-tablet-3-equal .site-primary-footer-inner-wrap {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Убираем границы у изображений Astra */
+.site-footer .wp-block-image img,
+.site-footer figure img {
+  border-radius: 0.5rem !important;
+}
+
+/* Srcset изображения */
+.site-footer img[srcset] {
+  object-fit: contain !important;
+}
+
+/* Специфичные перебивания для виджетов */
+#colophon .widget {
+  padding: 0 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+#colophon .widget:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Перебивка темных тем WordPress */
+body.dark-theme .site-footer,
+body[data-theme="dark"] .site-footer {
+  background: #0a0603 !important;
+}
+
+/* Удаление отступов от schema.org разметки */
+[itemtype*="WPFooter"] {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ========================================
+   Финальная полировка футера
+   ======================================== */
+
+/* Текст виджетов */
+.footer-widget-area .widget_text p:first-child {
+  margin-top: 0 !important;
+}
+
+.footer-widget-area .widget_text p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Списки с отступами */
+.footer-widget-area ul li a {
+  position: relative !important;
+  padding-left: 1rem !important;
+}
+
+.footer-widget-area ul li a::before {
+  content: "→" !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: var(--gold) !important;
+  opacity: 0.6 !important;
+  transition: opacity 0.3s ease !important;
+  display: inline-block !important;
+}
+
+.footer-widget-area ul li a:hover::before {
+  opacity: 1 !important;
+}
+
+/* Иконка 18+ */
+.site-footer-above-section-1 .wp-block-image {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+.site-footer-above-section-1 .wp-block-image img {
+  transition: transform 0.3s ease !important;
+}
+
+.site-footer-above-section-1 .wp-block-image:hover img {
+  transform: scale(1.05) !important;
+}
+
+/* Горизонтальный разделитель */
+.site-above-footer-wrap::after {
+  content: "" !important;
+  display: block !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(212, 175, 55, 0.2) 20%, 
+    rgba(212, 175, 55, 0.2) 80%, 
+    transparent 100%
+  ) !important;
+  margin-top: 2rem !important;
+}
+
+/* Лицензионное изображение */
+.site-footer-primary-section-2 figure {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.site-footer-primary-section-2 figure::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(180deg, transparent 0%, rgba(7, 5, 3, 0.3) 100%) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.site-footer-primary-section-2 figure img {
+  transition: transform 0.3s ease !important;
+}
+
+.site-footer-primary-section-2 figure:hover img {
+  transform: scale(1.02) !important;
+}
+
+/* Анимация появления футера */
+.site-footer {
+  animation: fadeInFooter 0.6s ease-out forwards !important;
+}
+
+@keyframes fadeInFooter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Убираем маркеры списков полностью */
+.site-footer ul,
+.site-footer ol {
+  list-style-type: none !important;
+}
+
+.site-footer ul li,
+.site-footer ol li {
+  list-style-type: none !important;
+  list-style: none !important;
+}
+
+/* Текстовое выравнивание для copyright */
+.ast-footer-copyright,
+.ast-footer-copyright > div {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+/* Hover эффект для всего футера */
+.site-footer a:not(.btn-gold):not(.btn-v2) {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.site-footer a:not(.btn-gold):not(.btn-v2)::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 1px !important;
+  background: var(--gold-light) !important;
+  transition: width 0.3s ease !important;
+}
+
+.site-footer a:not(.btn-gold):not(.btn-v2):hover::after {
+  width: 100% !important;
+}
+
+/* Курсор для ссылок */
+.site-footer a {
+  cursor: pointer !important;
+}
+
+/* Responsive padding для мобильных */
+@media (max-width: 767px) {
+  .site-above-footer-wrap {
+    padding: 2rem 0 1.5rem !important;
+  }
+  
+  .site-primary-footer-wrap {
+    padding: 1.5rem 0 !important;
+  }
+  
+  .site-below-footer-wrap {
+    padding: 0 !important;
+  }
+  
+  .footer-widget-area ul li a {
+    font-size: 0.875rem !important;
+  }
+  
+  .ast-footer-copyright,
+  .ast-builder-layout-element {
+    justify-content: flex-end !important;
+  }
+  
+  .cl-score {
+    width: auto !important;
+  }
+  
+  .cl-rank {
+    left: 10px !important;
+  }
+  
+  table th,
+  thead th,
+  table thead th,
+  .card-embossed table th,
+  .section table th,
+  .container table th {
+    white-space: nowrap !important;
+  }
+  
+  .table-container {
+    overflow-x: auto !important;
+  }
+}
+
+/* Tablet размеры */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .site-above-footer-wrap {
+    padding: 2.5rem 0 2rem !important;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .site-footer-above-section-1 {
+    padding-right: 1rem !important;
+  }
+  
+  .site-footer-above-section-2 {
+    padding-left: 1rem !important;
+  }
+}
+
+/* Сброс всех WordPress автозаполнений */
+.site-footer [class*="wp-block"] {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}
+
+/* Финальная очистка */
+.site-footer * {
+  letter-spacing: normal !important;
+}
+
+.site-footer p,
+.site-footer a,
+.site-footer li {
+  letter-spacing: 0.02em !important;
+}
+
+/* Old footer styles (keep for backwards compatibility) */
 .footer {
   padding: 3rem 0;
   background: #0a0603;
@@ -2309,4 +3460,13 @@ table tbody td:first-child {
 
 .summary-card.card-embossed.fade-in h3 {
   color: var(--foreground) !important;
+}
+
+.site-above-footer-wrap, .site-above-footer-wrap[data-section="section-above-footer-builder"]{
+
+  margin: 0 auto !important;
+}
+
+.site-below-footer-wrap, .site-below-footer-wrap[data-section="section-below-footer-builder"]{
+  margin: 0 auto !important;
 }
