@@ -1,0 +1,2312 @@
+/* ========================================
+   Eldorado Temple Theme - Native CSS
+   ======================================== */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap');
+
+/* CSS Variables */
+:root {
+  /* Dark backgrounds */
+  --background: #070503;
+  --foreground: #FFF3D1;
+  
+  /* Card */
+  --card: #140D05;
+  --card-foreground: #FFF3D1;
+  
+  /* Primary - Royal Gold */
+  --primary: #D4AF37;
+  --primary-foreground: #070503;
+  
+  /* Secondary */
+  --secondary: #241607;
+  --secondary-foreground: #FFD36A;
+  
+  /* Muted */
+  --muted: #1a1108;
+  --muted-foreground: #a89070;
+  
+  /* Accent - Emerald */
+  --accent: #0FAE77;
+  --accent-foreground: #070503;
+  
+  /* Borders */
+  --border: #3d2a10;
+  
+  /* Gold colors */
+  --gold: #D4AF37;
+  --gold-light: #FFD36A;
+  --gold-warm: #FFB84A;
+  --emerald: #0FAE77;
+  --emerald-light: #2EE6A2;
+  
+  /* Typography */
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Crimson Text', serif;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body) !important;
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ========================================
+   Typography
+   ======================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading) !important;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+span {
+  font-family: "Cinzel", "Cinzel Fallback", serif;
+  color: var(--foreground);
+}
+
+p.hero-warning {
+  font-family: "Cinzel", "Cinzel Fallback", serif;
+}
+
+table, 
+table th, 
+table thead, 
+table thead th, 
+table tbody td,
+.table-container table,
+.table-container table th,
+.table-container table thead th,
+.table-container table tbody td,
+.card-embossed table,
+.card-embossed table th,
+.card-embossed table thead th,
+.card-embossed table tbody td,
+.section table,
+.section table th,
+.section table thead th,
+.section table tbody td {
+  text-transform: none !important;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.text-gold { color: var(--gold) !important; }
+.text-gold-light { color: var(--gold-light) !important; }
+.text-gold-warm { color: var(--gold-warm) !important; }
+.text-emerald { color: var(--emerald) !important; }
+.text-emerald-light { color: var(--emerald-light) !important; }
+.text-muted { color: var(--muted-foreground) !important; }
+
+.text-muted-foreground {
+  color: var(--muted-foreground) !important;
+}
+
+.ml-2 {
+  margin-left: 0.5rem !important;
+}
+
+.text-muted-foreground.ml-2 {
+  color: var(--muted-foreground) !important;
+}
+
+.bg-secondary { background-color: var(--secondary) !important; }
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFD36A 0%, #D4AF37 50%, #FFB84A 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-weight: bold !important;
+}
+
+.text-gold-gradient2 {
+  font-weight: bold !important;
+  color: var(--foreground) !important;
+}
+
+/* Gold glow effect */
+.gold-glow {
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.3);
+  font-weight: bold !important;
+}
+
+.text-foreground {
+  font-weight: bold !important;
+  color: var(--foreground) !important;
+}
+
+/* Embossed card */
+.card-embossed {
+  background: linear-gradient(145deg, #1a1108 0%, #140D05 100%) !important;
+  box-shadow: 
+    inset 0 1px 0 0 rgba(212, 175, 55, 0.1),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(212, 175, 55, 0.15) !important;
+  border-radius: 0.75rem !important;
+}
+
+.card-embossed:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+/* Gold button */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #FFD36A 0%, #D4AF37 50%, #B8962F 100%) !important;
+  box-shadow: 
+    0 2px 8px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.2) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: #070503 !important;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem !important;
+  border: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-heading) !important;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #FFE08A 0%, #E5C547 50%, #D4AF37 100%);
+  box-shadow: 
+    0 4px 16px rgba(212, 175, 55, 0.5),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* Aztec divider */
+.aztec-divider {
+  height: 2px !important;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #3d2a10 10%, 
+    #D4AF37 30%, 
+    #FFD36A 50%, 
+    #D4AF37 70%, 
+    #3d2a10 90%, 
+    transparent 100%
+  ) !important;
+}
+
+/* Temple pattern */
+.temple-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(15, 174, 119, 0.02) 0%, transparent 50%) !important;
+}
+
+/* ========================================
+   Header
+   ======================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(7, 5, 3, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--background);
+  font-family: var(--font-heading);
+}
+
+.logo-text {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gold);
+  font-family: var(--font-heading);
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav a {
+  font-size: 0.875rem;
+  color: rgba(255, 243, 209, 0.8);
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--gold);
+}
+
+.header .btn-gold {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+  .logo-text {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .logo-text {
+    display: none;
+  }
+}
+
+/* ========================================
+   Hero Section
+   ======================================== */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #0a0603 0%, var(--background) 50%, var(--background) 100%) !important;
+}
+
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.particle-1 { top: 80px; left: 25%; background: var(--gold); }
+.particle-2 { top: 160px; right: 33%; background: var(--gold-light); animation-delay: 0.1s; width: 6px; height: 6px; }
+.particle-3 { top: 240px; left: 50%; background: var(--gold-warm); animation-delay: 0.2s; }
+.particle-4 { bottom: 160px; right: 25%; background: var(--emerald); animation-delay: 0.3s; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(36, 22, 7, 0.5) !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  margin-bottom: 2rem;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--emerald) !important;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.badge-text {
+  font-size: 0.875rem;
+  color: var(--gold-light);
+  font-weight: 500;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  max-width: 48rem;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon.gold {
+  background: rgba(212, 175, 55, 0.1) !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  color: var(--gold) !important;
+}
+
+.stat-icon.emerald {
+  background: rgba(15, 174, 119, 0.1) !important;
+  border: 1px solid rgba(15, 174, 119, 0.3) !important;
+  color: var(--emerald) !important;
+}
+
+.stat-icon.warm {
+  background: rgba(255, 184, 74, 0.1) !important;
+  border: 1px solid rgba(255, 184, 74, 0.3) !important;
+  color: var(--gold-warm) !important;
+}
+
+.stat-text {
+  text-align: left;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.hero-warning {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero .aztec-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 3.75rem;
+  }
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+  .hero-stats {
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero h1 {
+    font-size: 4.5rem;
+  }
+}
+
+/* ========================================
+   Sections
+   ======================================== */
+.section {
+  padding: 5rem 0 !important;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 1.875rem;
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  color: var(--muted-foreground);
+  max-width: 48rem;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .section-header h2 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-header h2 {
+    font-size: 3rem;
+  }
+}
+
+/* ========================================
+   Rating Section
+   ======================================== */
+.key-factors {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.factor-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.factor-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.factor-item span {
+  font-size: 0.875rem;
+  color: rgba(255, 243, 209, 0.9);
+}
+
+@media (min-width: 768px) {
+  .key-factors {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Casino cards */
+.casino-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.casino-card {
+  padding: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.casino-card.highlighted {
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.casino-top-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-warm) 100%) !important;
+  color: var(--background) !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 1rem;
+  border-bottom-left-radius: 0.75rem;
+}
+
+.casino-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.casino-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.casino-rank {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  font-family: var(--font-heading);
+}
+
+.casino-rank.gold-bg {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%) !important;
+  color: var(--background) !important;
+}
+
+.casino-rank.outline {
+  background: var(--secondary) !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  color: var(--gold) !important;
+}
+
+.casino-name h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.casino-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.casino-stars svg {
+  width: 16px;
+  height: 16px;
+}
+
+.casino-stars svg.filled {
+  color: var(--gold) !important;
+  fill: var(--gold) !important;
+}
+
+.casino-stars svg.empty {
+  color: var(--muted);
+}
+
+.casino-rating {
+  font-size: 0.875rem;
+  color: var(--gold);
+  margin-left: 0.25rem;
+}
+
+.casino-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.casino-stat {
+  min-width: 80px;
+}
+
+.casino-stat-label {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.25rem;
+}
+
+.casino-stat-value {
+  font-weight: 600;
+}
+
+.casino-stat-value.emerald {
+  color: var(--emerald) !important;
+}
+
+.casino-stat-value.gold {
+  color: var(--gold) !important;
+}
+
+.casino-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.feature-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  background: rgba(15, 174, 119, 0.1) !important;
+  color: var(--emerald) !important;
+  border: 1px solid rgba(15, 174, 119, 0.2) !important;
+}
+
+.casino-cta .btn-gold {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .casino-card {
+    padding: 1.5rem;
+  }
+  
+  .casino-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .casino-main {
+    width: 200px;
+    flex-shrink: 0;
+  }
+  
+  .casino-stats {
+    flex: 1;
+    gap: 2rem;
+  }
+  
+  .casino-features {
+    width: 256px;
+  }
+  
+  .casino-cta .btn-gold {
+    width: auto;
+  }
+}
+
+.section-note {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-top: 2rem;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========================================
+   Selection Criteria
+   ======================================== */
+.bg-secondary-light {
+  background: rgba(36, 22, 7, 0.3) !important;
+}
+
+.criteria-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.criteria-item {
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.criteria-item:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.criteria-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.criteria-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  background: rgba(212, 175, 55, 0.1) !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+.criteria-item:hover .criteria-icon {
+  background: rgba(212, 175, 55, 0.2);
+}
+
+.criteria-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--gold);
+}
+
+.criteria-text h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.criteria-text p {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.criteria-highlight {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(15, 174, 119, 0.1) !important;
+  color: var(--emerald) !important;
+  border: 1px solid rgba(15, 174, 119, 0.2) !important;
+}
+
+@media (min-width: 768px) {
+  .criteria-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .criteria-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========================================
+   What is Giropay
+   ======================================== */
+.giropay-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.giropay-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.giropay-card {
+  padding: 1.5rem;
+}
+
+.giropay-card p {
+  line-height: 1.8;
+  color: rgba(255, 243, 209, 0.9);
+}
+
+.giropay-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+.giropay-card.emerald-border {
+  border-color: rgba(15, 174, 119, 0.3) !important;
+}
+
+.steps-card {
+  padding: 1.5rem;
+}
+
+.steps-card h3 {
+  font-size: 1.125rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 100%) !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--gold) !important;
+  flex-shrink: 0;
+  font-family: var(--font-heading) !important;
+}
+
+.step-text {
+  flex: 1;
+  color: rgba(255, 243, 209, 0.9);
+}
+
+.step-arrow {
+  color: rgba(212, 175, 55, 0.5);
+  transform: rotate(90deg);
+}
+
+.steps-summary {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  text-align: center;
+}
+
+.steps-summary .time,
+.time {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d4af37 !important;
+  font-family: var(--font-heading);
+}
+
+.steps-summary .label {
+  color: var(--muted-foreground);
+  margin-left: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .step-arrow {
+    transform: rotate(0);
+  }
+}
+
+@media (min-width: 1024px) {
+  .giropay-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   Tables
+   ======================================== */
+.table-container {
+  overflow-x: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.card-embossed .table-container {
+  border: none !important;
+  border-left: none !important;
+}
+
+.card-embossed:has(.table-container) {
+  border-left: none !important;
+}
+
+.card-embossed > .table-header + .table-container,
+.card-embossed > .table-container {
+  margin-left: -1px !important;
+  margin-right: -1px !important;
+}
+
+.table-header {
+  padding: 1.5rem !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+  margin: 0 !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+}
+
+.table-header h3 {
+  font-size: 1.25rem !important;
+  color: var(--gold) !important;
+  margin: 0 !important;
+  font-family: var(--font-heading) !important;
+}
+
+table {
+  text-indent: 0 !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 0 !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+}
+
+table th,
+thead th {
+  padding: 1rem !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+  background: linear-gradient(180deg, #241607 0%, #1a1108 100%) !important;
+  border-bottom: 2px solid var(--gold) !important;
+  color: var(--foreground) !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  font-size: 0.875rem !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+table td,
+tbody td {
+  padding: 1rem !important;
+  color: var(--foreground) !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1) !important;
+  font-size: 0.9375rem !important;
+  vertical-align: middle !important;
+  border-left: none !important;
+  border-right: none !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  font-weight: 600 !important;
+}
+
+table tr,
+tbody tr {
+  border-top: 1px solid rgba(212, 175, 55, 0.1) !important;
+  transition: background 0.3s ease !important;
+}
+
+table tr:nth-child(even),
+tbody tr:nth-child(even) {
+  background: rgba(20, 13, 5, 0.5) !important;
+}
+
+table tr:hover,
+tbody tr:hover {
+  background: rgba(212, 175, 55, 0.05) !important;
+}
+
+table tbody tr:first-child {
+  border-top: none !important;
+}
+
+/* ========================================
+   Deposit/Withdrawal Section
+   ======================================== */
+.deposit-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.deposit-card {
+  overflow: hidden;
+}
+
+.deposit-card-header {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deposit-card-header.gold-bg {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+}
+
+.deposit-card-header.emerald-bg {
+  background: linear-gradient(90deg, rgba(15, 174, 119, 0.05) 0%, transparent 100%);
+}
+
+.deposit-card-header h3 {
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deposit-card-header svg {
+  width: 20px;
+  height: 20px;
+}
+
+.bank-times {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bank-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.375rem 0.5rem;
+  border-radius: 0.5rem;
+  background: rgba(7, 5, 3, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.bank-name {
+  font-weight: 600;
+}
+
+.bank-method {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-left: 0.5rem;
+}
+
+.bank-time {
+  font-family: monospace;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+@media (min-width: 1024px) {
+  .deposit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Warning card */
+.warning-card {
+  padding: 1.5rem;
+  border-color: rgba(255, 184, 74, 0.3) !important;
+  background: rgba(255, 184, 74, 0.05) !important;
+}
+
+.warning-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.warning-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  background: rgba(255, 184, 74, 0.2);
+  border: 1px solid rgba(255, 184, 74, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.warning-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--gold-warm);
+}
+
+.warning-text h3 {
+  font-size: 1.125rem;
+  color: var(--gold-warm);
+  margin-bottom: 0.5rem;
+}
+
+.warning-text p {
+  color: rgba(255, 243, 209, 0.9);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.warning-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.warning-tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(7, 5, 3, 0.8);
+  font-size: 0.875rem;
+}
+
+.warning-tag.gold-border {
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.warning-tag.emerald-border {
+  border: 1px solid rgba(15, 174, 119, 0.2);
+}
+
+/* Info card */
+.info-card {
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.info-card h3 {
+  font-size: 1.125rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.info-grid {
+  display: grid;
+  gap: 1rem;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+.info-item {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(7, 5, 3, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  font-weight: normal !important;
+  letter-spacing: 0.05em !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+.info-item-label {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.25rem;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  font-weight: normal !important;
+  letter-spacing: 0.05em !important;
+  line-height: 1 !important;
+  transform: scaleY(0.95) !important;
+  transform-origin: center !important;
+}
+
+.info-item-value {
+  font-weight: normal !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  letter-spacing: 0.05em !important;
+  line-height: 1 !important;
+  transform: scaleY(0.95) !important;
+  transform-origin: center !important;
+}
+
+.info-note {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tip card */
+.tip-card {
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-color: rgba(15, 174, 119, 0.3) !important;
+}
+
+.tip-card h3 {
+  font-size: 1.125rem;
+  color: var(--emerald);
+  margin-bottom: 0.75rem;
+}
+
+.tip-card p {
+  color: rgba(255, 243, 209, 0.9);
+  line-height: 1.8;
+}
+
+/* ========================================
+   Limits Section
+   ======================================== */
+.bank-limits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.bank-limit-card {
+  padding: 1rem;
+  text-align: center;
+}
+
+.bank-limit-name {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.25rem;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+}
+
+.bank-limit-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold);
+  font-family: var(--font-heading);
+}
+
+.bank-limit-label {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+}
+
+@media (min-width: 768px) {
+  .bank-limits {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.limits-info {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.limits-info-card {
+  padding: 1.5rem;
+}
+
+.limits-info-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+.limits-info-card p {
+  color: rgba(255, 243, 209, 0.9);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.limits-info-card.warning-border {
+  border-color: rgba(255, 184, 74, 0.3) !important;
+}
+
+.fee-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.fee-tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(15, 174, 119, 0.1) !important;
+  color: var(--emerald) !important;
+  font-size: 0.875rem;
+  border: 1px solid rgba(15, 174, 119, 0.2) !important;
+}
+
+.security-card {
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-color: rgba(15, 174, 119, 0.3) !important;
+}
+
+.security-card h3 {
+  font-size: 1.125rem;
+  color: var(--emerald);
+  margin-bottom: 0.75rem;
+}
+
+.security-card p {
+  color: rgba(255, 243, 209, 0.9);
+  line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .limits-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   Pros & Cons Section
+   ======================================== */
+.pros-cons-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.pros-card, .cons-card {
+  overflow: hidden;
+}
+
+.pros-header, .cons-header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pros-header {
+  border-bottom: 1px solid rgba(15, 174, 119, 0.3) !important;
+  background: linear-gradient(90deg, rgba(15, 174, 119, 0.1) 0%, transparent 100%) !important;
+}
+
+.cons-header {
+  border-bottom: 1px solid rgba(255, 184, 74, 0.3) !important;
+  background: linear-gradient(90deg, rgba(255, 184, 74, 0.1) 0%, transparent 100%) !important;
+}
+
+.pros-header h3 {
+  font-size: 1.25rem;
+  color: var(--emerald);
+}
+
+.cons-header h3 {
+  font-size: 1.25rem;
+  color: var(--gold-warm);
+}
+
+.pros-header svg, .cons-header svg {
+  width: 24px;
+  height: 24px;
+}
+
+.pros-list, .cons-list {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pros-item, .cons-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.pros-icon, .cons-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pros-icon {
+  background: rgba(15, 174, 119, 0.2) !important;
+  border: 1px solid rgba(15, 174, 119, 0.4) !important;
+}
+
+.cons-icon {
+  background: rgba(255, 184, 74, 0.2) !important;
+  border: 1px solid rgba(255, 184, 74, 0.4) !important;
+}
+
+.pros-icon svg {
+  width: 16px;
+  height: 16px;
+  color: var(--emerald) !important;
+}
+
+.cons-icon svg {
+  width: 16px;
+  height: 16px;
+  color: var(--gold-warm) !important;
+}
+
+.pros-item span, .cons-item span {
+  color: rgba(255, 243, 209, 0.9);
+}
+
+@media (min-width: 1024px) {
+  .pros-cons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   Alternatives Section
+   ======================================== */
+.alternatives-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.alt-card {
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.alt-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.alt-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.alt-icon.emerald {
+  background: rgba(15, 174, 119, 0.1) !important;
+  border: 1px solid rgba(15, 174, 119, 0.3) !important;
+}
+
+.alt-icon.gold {
+  background: rgba(212, 175, 55, 0.1) !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+}
+
+.alt-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.alt-icon.emerald svg {
+  color: var(--emerald);
+}
+
+.alt-icon.gold svg {
+  color: var(--gold);
+}
+
+.alt-title h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--foreground) !important;
+}
+
+.alt-badge {
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.alt-badge.emerald {
+  background: rgba(15, 174, 119, 0.1) !important;
+  color: var(--emerald) !important;
+  border: 1px solid rgba(15, 174, 119, 0.2) !important;
+}
+
+.alt-badge.gold {
+  background: rgba(212, 175, 55, 0.1) !important;
+  color: var(--gold) !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+}
+
+.alt-description {
+  font-size: 0.875rem;
+  color: rgba(255, 243, 209, 0.8);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.alt-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  padding-top: 1rem;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.alt-footer span {
+  color: var(--muted-foreground) !important;
+}
+
+@media (min-width: 768px) {
+  .alternatives-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .alternatives-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.recommendation-card {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-color: rgba(15, 174, 119, 0.3) !important;
+}
+
+.recommendation-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recommendation-text h3 {
+  font-size: 1.125rem;
+  color: var(--emerald);
+  margin-bottom: 0.5rem;
+}
+
+.recommendation-text p {
+  color: rgba(255, 243, 209, 0.9);
+}
+
+@media (min-width: 768px) {
+  .recommendation-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* ========================================
+   Responsible Gaming Section
+   ======================================== */
+.responsible-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.regulation-card {
+  padding: 1.5rem;
+}
+
+.regulation-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.regulation-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.regulation-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--gold);
+}
+
+.regulation-header h3 {
+  font-size: 1.125rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.regulation-header p {
+  color: rgba(255, 243, 209, 0.9);
+  line-height: 1.8;
+}
+
+.official-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+}
+
+.official-links a {
+  text-decoration: none !important;
+}
+
+.official-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(7, 5, 3, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.3s;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  text-decoration: none !important;
+}
+
+.official-link:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.official-link.emerald-border:hover {
+  border-color: rgba(15, 174, 119, 0.4);
+}
+
+.link-title {
+  font-weight: 600;
+}
+
+.link-subtitle {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.official-link svg {
+  width: 20px;
+  height: 20px;
+  color: var(--gold);
+  transition: transform 0.3s;
+}
+
+.official-link.emerald-border svg {
+  color: var(--emerald);
+}
+
+.official-link:hover svg {
+  transform: translateX(4px);
+}
+
+.summary-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.summary-card {
+  padding: 1.5rem;
+}
+
+.summary-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.summary-card p {
+  color: rgba(255, 243, 209, 0.9);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.summary-card p:last-child {
+  margin-bottom: 0;
+}
+
+.notice-card {
+  padding: 1.5rem;
+  border-color: rgba(255, 184, 74, 0.3) !important;
+}
+
+.notice-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.notice-content svg {
+  width: 24px;
+  height: 24px;
+  color: var(--gold-warm);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.notice-content h3 {
+  font-size: 1rem;
+  color: var(--gold-warm);
+  margin-bottom: 0.5rem;
+}
+
+.notice-content p {
+  color: rgba(255, 243, 209, 0.9);
+  line-height: 1.8;
+}
+
+@media (min-width: 1024px) {
+  .responsible-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+.footer {
+  padding: 3rem 0;
+  background: #0a0603;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.footer-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.footer-stat {
+  text-align: center;
+}
+
+.footer-stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-stat-icon.gold {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.footer-stat-icon.emerald {
+  background: rgba(15, 174, 119, 0.1);
+}
+
+.footer-stat-icon.warm {
+  background: rgba(255, 184, 74, 0.1);
+}
+
+.footer-stat-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+.footer-stat-label {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-column h4 {
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+}
+
+.footer-column ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-column a {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: var(--gold);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.footer-warning {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
+}
+
+.footer-copyright {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+@media (min-width: 768px) {
+  .footer-links {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ========================================
+   Mobile menu
+   ======================================== */
+.mobile-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: var(--gold);
+}
+
+.mobile-menu-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: var(--background);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 1rem;
+  z-index: 40;
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: rgba(255, 243, 209, 0.8);
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+
+.mobile-menu a:hover {
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+  text-transform: none !important;
+}
+
+.card-embossed.fade-in {
+  text-transform: none !important;
+}
+
+/* Smooth scroll indicator */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--emerald) 100%);
+  z-index: 100;
+  transition: width 0.1s;
+}
+
+/* ========================================
+   Casino List V2 - New Shortcode Table Styles
+   ======================================== */
+
+/* Main container for casino table */
+.casino-list--v2 {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+}
+
+/* Individual casino row */
+.casino-row {
+  padding: 1rem !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background: linear-gradient(145deg, #1a1108 0%, #140D05 100%) !important;
+  box-shadow: 
+    inset 0 1px 0 0 rgba(212, 175, 55, 0.1),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(212, 175, 55, 0.15) !important;
+  border-radius: 0.75rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+}
+
+.casino-row:hover {
+  border-color: rgba(212, 175, 55, 0.4) !important;
+}
+
+/* Rank number */
+.cl-rank {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 700 !important;
+  font-size: 1.125rem !important;
+  font-family: var(--font-heading) !important;
+  background: #241607 !important;
+  color: #d4af37 !important;
+  border: 1px solid color-mix(in oklab, #d4af37 20%, transparent) !important;
+  flex-shrink: 0 !important;
+}
+
+/* First rank with gold gradient */
+.casino-row:first-child .cl-rank {
+  background: linear-gradient(135deg, #d4af37 0%, #ffb84a 100%) !important;
+  color: var(--background) !important;
+  border: none !important;
+}
+
+/* Logo container */
+.cl-logo {
+  width: 100% !important;
+  max-width: 120px !important;
+  flex-shrink: 0 !important;
+}
+
+.cl-logo-inner {
+  width: 100% !important;
+  aspect-ratio: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem !important;
+  border: 1px solid rgba(212, 175, 55, 0.15) !important;
+}
+
+.cl-logo-inner img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* Name and score container */
+.cl-name-score-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+  flex: 1 !important;
+}
+
+.cl-name {
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  color: var(--foreground) !important;
+  font-family: var(--font-heading) !important;
+}
+
+.cl-score {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.score-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  border: 1px solid rgba(212, 175, 55, 0.15) !important;
+  border-radius: 10px !important;
+  padding: 0.5rem 0.75rem !important;
+}
+
+.score-wrap .label {
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: .04em !important;
+  color: var(--foreground) !important;
+}
+
+.score-wrap .value {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: var(--gold) !important;
+}
+
+/* Bonus text */
+.cl-bonus {
+  font-size: 0.875rem !important;
+  color: #0fae77 !important;
+  background-color: color-mix(in oklab, #0fae77 10%, transparent) !important;
+  padding: 0.5rem 0.75rem !important;
+  border-top: 1px solid color-mix(in oklab, #0fae77 20%, transparent) !important;
+  border-bottom: 1px solid color-mix(in oklab, #0fae77 20%, transparent) !important;
+  border-left: 1px solid color-mix(in oklab, #0fae77 20%, transparent) !important;
+  border-right: 1px solid color-mix(in oklab, #0fae77 20%, transparent) !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  font-weight: normal !important;
+  max-width: 300px !important;
+  border-radius: 0.5rem !important;
+  text-align: center !important;
+}
+
+/* Action button */
+.cl-action {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.casino-list--v2 .cl-action .btn-v2,
+.cl-action .btn-v2 {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  background: linear-gradient(135deg, #FFD36A 0%, #D4AF37 50%, #B8962F 100%) !important;
+  box-shadow: 
+    0 2px 8px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.2) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+  color: #070503 !important;
+  font-weight: 600 !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.75rem !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+  text-decoration: none !important;
+  width: 100% !important;
+  white-space: nowrap !important;
+}
+
+.casino-list--v2 .cl-action .btn-v2:hover,
+.cl-action .btn-v2:hover {
+  background: linear-gradient(135deg, #FFE08A 0%, #E5C547 50%, #D4AF37 100%) !important;
+  box-shadow: 
+    0 4px 16px rgba(212, 175, 55, 0.5),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.2) !important;
+  transform: scale(1.05) !important;
+  color: #070503 !important;
+}
+
+/* Responsive styles for tablet and desktop */
+@media (min-width: 768px) {
+  .casino-row {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+  
+  .cl-rank {
+    order: 1 !important;
+  }
+  
+  .cl-logo {
+    order: 2 !important;
+    max-width: 100px !important;
+  }
+  
+  .cl-name-score-container {
+    order: 3 !important;
+    min-width: 150px !important;
+  }
+  
+  .cl-bonus {
+    order: 4 !important;
+    flex: 1 !important;
+  }
+  
+  .cl-action {
+    order: 5 !important;
+  }
+  
+  .cl-action .btn-v2 {
+    width: auto !important;
+    min-width: 150px !important;
+  }
+}
+
+/* Special style for #1 rank */
+.casino-row:first-child {
+  border-color: rgba(212, 175, 55, 0.15) !important;
+  position: relative !important;
+}
+
+.casino-row:first-child::before {
+  content: 'TOP WAHL' !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-warm) 100%) !important;
+  color: var(--background) !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  padding: 0.25rem 1rem !important;
+  border-bottom-left-radius: 0.75rem !important;
+  z-index: 10 !important;
+}
+
+
+.section-note {
+  font-family: "Cinzel", "Cinzel Fallback", serif !important;
+ }
+ 
+ .load-more-btn {
+  display:none !important;
+ }
+
+/* ========================================
+   WordPress Table Overrides
+   ======================================== */
+
+/* Additional table protection for WordPress */
+.card-embossed table,
+.section table,
+.container table {
+  background: transparent !important;
+  border-spacing: 0 !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.card-embossed table th,
+.section table th,
+.container table th {
+  background: linear-gradient(180deg, #241607 0%, #1a1108 100%) !important;
+  color: var(--foreground) !important;
+  border-color: var(--gold) !important;
+  font-weight: 600 !important;
+}
+
+.card-embossed table td,
+.section table td,
+.container table td {
+  background: transparent !important;
+  color: var(--foreground) !important;
+  font-weight: 600 !important;
+}
+
+.card-embossed table tr:nth-child(even),
+.section table tr:nth-child(even),
+.container table tr:nth-child(even) {
+  background: rgba(20, 13, 5, 0.5) !important;
+}
+
+/* Reset WordPress default table styles */
+.wp-block-table table {
+  border-collapse: collapse !important;
+}
+
+.wp-block-table td,
+.wp-block-table th {
+  border: none !important;
+}
+
+/* Table text colors */
+table td.text-gold,
+table td .text-gold {
+  color: var(--gold) !important;
+}
+
+table td.text-emerald,
+table td .text-emerald {
+  color: var(--emerald) !important;
+}
+
+table td.text-gold-warm,
+table td .text-gold-warm {
+  color: var(--gold-warm) !important;
+}
+
+/* Table content styling */
+table tbody td:first-child {
+  font-weight: 600 !important;
+  color: var(--foreground) !important;
+}
+
+.criteria-text h3 {
+  color: var(--foreground) !important;
+}
+
+.summary-card.card-embossed.fade-in h3 {
+  color: var(--foreground) !important;
+}
